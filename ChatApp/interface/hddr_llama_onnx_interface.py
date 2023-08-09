@@ -9,7 +9,10 @@ import gc
 
 from .base_interface import BaseLLMInterface
 
-from ChatApp.app_modules.utils import (
+import sys
+sys.path.append("..")
+
+from app_modules.utils import (
     is_stop_word_or_prefix,
     convert_to_markdown,
     shared_state,

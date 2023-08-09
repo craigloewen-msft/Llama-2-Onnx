@@ -11,7 +11,10 @@ from pygments import highlight
 from pygments.lexers import guess_lexer, get_lexer_by_name, ClassNotFound
 from pygments.formatters import HtmlFormatter
 
-from ChatApp.app_modules.presets import ALREADY_CONVERTED_MARK
+import sys
+sys.path.append("..")
+
+from app_modules.presets import ALREADY_CONVERTED_MARK
 
 logging.basicConfig(
     level=logging.INFO,

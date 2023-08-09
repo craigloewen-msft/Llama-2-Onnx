@@ -5,20 +5,24 @@ import gradio as gr
 import gc
 from interface.hddr_llama_onnx_interface import LlamaOnnxInterface
 from interface.empty_stub_interface import EmptyStubInterface
-from ChatApp.app_modules.utils import (
+
+import sys
+sys.path.append(".")
+
+from app_modules.utils import (
     reset_textbox,
     transfer_input,
     reset_state,
     delete_last_conversation,
     cancel_outputing,
 )
-from ChatApp.app_modules.presets import (
+from app_modules.presets import (
     small_and_beautiful_theme,
     title,
     description_top,
     description,
 )
-from ChatApp.app_modules.overwrites import postprocess
+from app_modules.overwrites import postprocess
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -166,7 +170,7 @@ with gr.Blocks(css=custom_css, theme=small_and_beautiful_theme) as demo:
     with gr.Row():
         with gr.Column(scale=5):
             with gr.Row():
-                chatbot = gr.Chatbot(elem_id="chuanhu_chatbot", height=900)
+                chatbot = gr.Chatbot(elem_id="chuanhu_chatbot", height=400)
             with gr.Row():
                 with gr.Column(scale=12):
                     user_input = gr.Textbox(show_label=False, placeholder="Enter text")
